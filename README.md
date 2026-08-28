@@ -1,181 +1,133 @@
-# eRecall — Enhanced Recall AI Chatbot
+# eRecall
 
-A memory‑first AI assistant designed to learn, adapt, and remember user interactions over time.
-Built with a modern architecture combining LLMs, vector databases, memory extraction, and semantic retrieval.
+eRecall (Enhanced Recall) is a memory-first AI assistant project focused on persistent, user-controlled conversational memory.
 
-# Status
+The goal is to build a serious open-source system where conversations can benefit from remembered context across sessions without giving up clear user control, privacy-conscious storage, and maintainable engineering boundaries.
 
-🚧 Active Development Phase  
-eRecall is currently under construction. Core components are being implemented, refined, and tested.  
-Expect rapid iteration, new features, and architectural improvements.
+## Problem
 
-# Overview
+Most chat assistants are optimized around the current prompt and short-term context. Useful personal context, preferences, corrections, and long-running goals are often lost, repeated, or hidden inside provider-specific behavior.
 
-eRecall (short for Enhanced Recall) is an AI chatbot engineered to maintain long‑term memory across sessions.
+eRecall explores an explicit memory architecture where stored information is modeled, retrieved, maintained, reviewed, and deleted through project-owned interfaces.
 
-Unlike traditional chatbots that forget everything after each message, eRecall builds a persistent memory profile using:
+## Status
 
-- Memory extraction
-- Vector embeddings
-- Semantic search
-- Episodic + structured memory
-- Maintenance agents
+Stage 0 is the repository foundation and engineering baseline. The project is not yet an implemented chatbot, memory engine, backend API, frontend application, or deployed service.
 
-This enables eRecall to deliver context‑aware, personalized, and adaptive conversations.
+This stage establishes documentation, contribution practices, architecture direction, and decision records for future work.
 
-# Key Features
+## Intended Architecture
 
-- Long‑Term Memory  
-  Stores user preferences, facts, events, and summaries.
+At a high level, eRecall is expected to evolve around these layers:
 
-- Memory Extraction Engine  
-  Converts raw messages into structured “atomic memories.”
+```text
+Client / Frontend
+        |
+API / Application Layer
+        |
+Core Services
+        |
+Memory System
+        |
+Persistence / Retrieval Infrastructure
+        |
+External Providers
+```
 
-- Vector-Based Semantic Retrieval  
-  Uses embeddings and similarity search to recall relevant information.
+Major planned areas include:
 
-- Memory Maintenance Agent  
-  Updates, merges, summarizes, and cleans memory over time.
+- Client experience for conversation, memory review, and user controls.
+- API and application layer for request handling, validation, authentication boundaries, and orchestration.
+- Core services for conversation workflows, memory extraction, retrieval, maintenance, and evaluation.
+- Memory system for structured memory records, lifecycle state, provenance, deletion, and semantic retrieval.
+- Persistence and retrieval infrastructure for structured storage, vector search, caching, and background work when justified.
+- Provider abstractions for chat models, embeddings, and other external services.
 
-- User Profiles  
-  Persistent identity and multi-user support.
+See [Architecture](docs/architecture.md) for the intended boundaries and responsibilities.
 
-- Modular Architecture  
-  Easy to extend, replace components, or integrate new models.
+## Memory Concepts
 
-# High-Level Architecture
+eRecall treats memory as an explicit product and architecture concern. Future implementation should distinguish between:
 
-1. Frontend (Next.js)
-   - Chat UI
-   - Streaming responses
-   - Authentication
-   - Session management
+- Conversation history: raw or summarized interaction records.
+- Extracted memories: structured facts, preferences, events, or user-provided context derived from conversations.
+- Retrieved context: relevant memories selected for a specific interaction.
+- Maintained memories: records merged, updated, expired, archived, or deleted over time.
+- User-controlled memory: inspectable and removable information that remains under user control.
 
-2. Backend API (FastAPI / Node.js)
-   - /chat — main chat endpoint
-   - /extract_memory — memory extraction
-   - /retrieve_memory — semantic search
-   - /maintain_memory — memory cleanup and updates
-   - /profile — user identity and metadata
+The project should avoid hidden or provider-locked memory behavior where practical.
 
-3. Memory Layer
-   - Episodic Memory — events, interactions
-   - Semantic Memory — facts, preferences
-   - Summary Memory — compressed long-term context
-   - Vector Embeddings — for similarity search
-   - Graph Relationships (future)
+## Technology Direction
 
-4. LLM Layer
-   - Chat model
-   - Extractor model
-   - Summarizer model
-   - Maintenance agent model
+The current intended direction is:
 
-5. Database Layer
-   - Qdrant — vector DB
-   - PostgreSQL — structured memory and profiles
-   - Redis — caching recent messages
+- Frontend: Next.js, TypeScript, Tailwind CSS.
+- Backend: Python, FastAPI, Pydantic.
+- Structured storage: PostgreSQL.
+- Vector storage: Qdrant.
+- Caching and asynchronous infrastructure: Redis and background processing when the architecture justifies them.
+- Delivery: Docker and GitHub Actions.
+- Observability: OpenTelemetry, Prometheus, and Grafana.
+- AI providers: provider abstractions for chat, embeddings, extraction, and evaluation workflows.
 
-# Tech Stack
+These are directional choices for future stages. Stage 0 does not install, configure, or integrate them.
 
-Frontend:
-- Next.js
-- TailwindCSS
-- SWR
-- WebSockets
+## Repository Layout
 
-Backend:
-- FastAPI / Node.js
-- Pydantic
-- Celery / BullMQ
+```text
+.
+|-- backend/                 Future API and backend service workspace
+|-- frontend/                Future client application workspace
+|-- shared/                  Future shared contracts and interface definitions
+|-- tests/                   Future cross-project and integration test workspace
+|-- infrastructure/          Future deployment and operations assets
+|-- docs/                    Architecture, development, roadmap, and ADRs
+|-- .github/                 Issue and pull request templates
+|-- CONTRIBUTING.md          Contribution workflow
+|-- SECURITY.md              Security reporting and baseline expectations
+|-- CODE_OF_CONDUCT.md       Community standards
+|-- LICENSE                  Project license
+```
 
-Memory & Storage:
-- Qdrant
-- PostgreSQL
-- Redis
+See [Repository Structure](docs/repository-structure.md) for rationale.
 
-AI & Embeddings:
-- OpenAI / Anthropic / Groq
-- SentenceTransformers
-- LangChain (optional)
+## Development
 
-DevOps:
-- Docker
-- GitHub Actions
-- Railway / Fly.io / Azure
+The project is intentionally light on tooling until implementation begins. Future tooling should be added when it supports a real workflow: formatting, linting, tests, type checking, documentation validation, or release automation.
 
-# Project Roadmap
+For current contribution expectations, see [Development Workflow](docs/development.md) and [Contributing](CONTRIBUTING.md).
 
-## Phase 1 — Foundations (Week 1)
-- Repo structure
-- Basic backend
-- Basic frontend chat UI
-- Streaming chat endpoint
+## Roadmap
 
-## Phase 2 — Memory Extraction (Week 2)
-- Memory schema
-- Extraction prompts
-- Embedding pipeline
-- Qdrant integration
+The roadmap is organized by engineering phases rather than artificial deadlines:
 
-## Phase 3 — Memory Retrieval (Week 3)
-- Semantic search
-- Relevance scoring
-- Memory injection into prompts
+1. Repository and architecture foundation.
+2. Core application foundation.
+3. Conversation persistence.
+4. Memory extraction.
+5. Memory storage.
+6. Memory retrieval.
+7. Memory lifecycle and maintenance.
+8. User-controlled memory.
+9. Provider abstraction.
+10. Evaluation.
+11. Reliability and observability.
+12. Production engineering.
+13. Deployment.
+14. Future advanced capabilities.
 
-## Phase 4 — Memory Maintenance (Week 4)
-- Maintenance agent
-- Contradiction detection
-- Summary generation
-- Memory cleanup
+See [Roadmap](docs/roadmap.md) for more detail.
 
-## Phase 5 — User Profiles (Week 5)
-- Authentication
-- User identity
-- Profile-linked memory
+## Contributing
 
-## Phase 6 — Advanced Memory (Week 6)
-- Graph memory
-- Importance scoring
-- Time decay
+Contributions are welcome once the project begins accepting implementation changes. Early contributions should focus on documentation clarity, architecture review, issue discussion, and scoped improvements that align with the current stage.
 
-## Phase 7 — Production (Week 7)
-- Docker deployment
-- CI/CD
-- Monitoring
-- Documentation
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
-Note: Roadmap is flexible and will evolve as the project grows.
+## Security
 
-# Contributing
+Do not commit credentials, tokens, private keys, exported user data, or real secrets. Security issues should be reported through the process in [SECURITY.md](SECURITY.md).
 
-Contributions are welcome!
+## License
 
-Since eRecall is in active development, you can help by:
-
-- Reporting issues
-- Suggesting features
-- Improving documentation
-- Contributing to memory extraction, retrieval, or UI components
-
-Please open a pull request or start a discussion.
-
-# License
-
-This project will use the MIT License (recommended for open-source adoption).  
-You may update this section once the license file is added.
-
-# Development Status
-
-eRecall is currently in early development.  
-Many components are experimental, incomplete, or subject to change.  
-Expect frequent updates, refactoring, and architectural improvements.
-
-# Branding
-
-eRecall = Enhanced Recall  
-A modern AI assistant that remembers you.
-
-# Contact
-
-If you have suggestions or want to collaborate, feel free to open an issue or discussion in the repo.
+eRecall is licensed under the [MIT License](LICENSE).
