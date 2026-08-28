@@ -1,4 +1,4 @@
-# ADR 0004: Document Technology Direction Without Stage 0 Integration
+# ADR 0004: Document Technology Direction Without Stage 1A Integration
 
 ## Status
 
@@ -8,11 +8,11 @@ Accepted
 
 The project has an intended technology direction: Next.js, TypeScript, Tailwind CSS, Python, FastAPI, Pydantic, PostgreSQL, Qdrant, Redis, Docker, GitHub Actions, OpenTelemetry, Prometheus, and Grafana.
 
-Stage 0 is not the correct phase to install frameworks, configure infrastructure, or introduce dependencies that do not yet validate working code.
+Stage 1A — Repository Foundation is not the correct phase to install frameworks, configure infrastructure, or introduce dependencies that do not yet validate working code.
 
 ## Decision
 
-Stage 0 will document the technology direction but will not install, configure, or integrate those technologies.
+Stage 1A — Repository Foundation will document the technology direction but will not install, configure, or integrate those technologies.
 
 Tooling and dependencies will be introduced in later phases when they support concrete implementation, validation, or operations needs.
 

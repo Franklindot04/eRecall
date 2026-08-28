@@ -6,7 +6,7 @@ Accepted
 
 ## Context
 
-eRecall is expected to include a frontend, backend, shared contracts, documentation, tests, and future infrastructure. Stage 0 should establish ownership boundaries without generating application scaffolding or empty directories for appearance.
+eRecall is expected to include a frontend, backend, shared contracts, documentation, tests, and future infrastructure. Stage 1A — Repository Foundation should establish ownership boundaries without generating application scaffolding or empty directories for appearance.
 
 ## Decision
 

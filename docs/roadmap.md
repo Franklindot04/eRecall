@@ -2,11 +2,11 @@
 
 This roadmap is organized by engineering phase. It intentionally avoids artificial dates because requirements will become clearer as each phase is completed.
 
-## Phase 0: Repository and Architecture Foundation
+## Stage 1A — Repository Foundation
 
 Establish repository structure, governance files, high-level architecture, development standards, security expectations, roadmap, and ADR practices.
 
-## Phase 1: Core Application Foundation
+## Stage 1B — Core Application Foundation
 
 Introduce the minimal frontend and backend application foundations, local development workflow, baseline tests, formatting, linting, and service boundaries.
 
