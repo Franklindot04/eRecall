@@ -1,6 +1,6 @@
 # Repository Structure
 
-The repository structure for Stage 1A — Repository Foundation is intentionally small. Directories exist only where they clarify future ownership.
+The repository structure for Stage 1A Repository Foundation is intentionally small. Directories exist only where they clarify future ownership.
 
 ## Top-Level Areas
 

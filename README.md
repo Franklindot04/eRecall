@@ -12,7 +12,7 @@ eRecall explores an explicit memory architecture where stored information is mod
 
 ## Status
 
-Stage 1A — Repository Foundation establishes the repository foundation and engineering baseline. The project is not yet an implemented chatbot, memory engine, backend API, frontend application, or deployed service.
+Stage 1A Repository Foundation establishes the repository foundation and engineering baseline. The project is not yet an implemented chatbot, memory engine, backend API, frontend application, or deployed service.
 
 This stage establishes documentation, contribution practices, architecture direction, and decision records for future work.
 
@@ -70,7 +70,7 @@ The current intended direction is:
 - Observability: OpenTelemetry, Prometheus, and Grafana.
 - AI providers: provider abstractions for chat, embeddings, extraction, and evaluation workflows.
 
-These are directional choices for future stages. Stage 1A — Repository Foundation does not install, configure, or integrate them.
+These are directional choices for future stages. Stage 1A Repository Foundation does not install, configure, or integrate them.
 
 ## Repository Layout
 

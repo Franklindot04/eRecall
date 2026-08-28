@@ -4,7 +4,7 @@ This document records the initial engineering standards for eRecall. Tooling sho
 
 ## Local Development
 
-Stage 1A — Repository Foundation has no runnable application. Future setup instructions should be added when the frontend, backend, or supporting services are introduced.
+Stage 1A Repository Foundation has no runnable application. Future setup instructions should be added when the frontend, backend, or supporting services are introduced.
 
 ## Formatting and Linting
 

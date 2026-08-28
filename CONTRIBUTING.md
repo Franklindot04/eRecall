@@ -4,7 +4,7 @@ Thank you for taking an interest in eRecall. This project is early, so the best 
 
 ## Current Stage
 
-The project is in Stage 1A — Repository Foundation. Implementation work for the chatbot, backend, frontend, authentication, memory engine, storage integrations, deployment, and production infrastructure is intentionally deferred.
+The project is in Stage 1A Repository Foundation. Implementation work for the chatbot, backend, frontend, authentication, memory engine, storage integrations, deployment, and production infrastructure is intentionally deferred.
 
 ## Contribution Workflow
 
